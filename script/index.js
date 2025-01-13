@@ -9,17 +9,18 @@ const userHeight = document.querySelector('#userHeight');
 const userWeight = document.querySelector('#userWeight');
 const resultBtn = document.querySelector('button');
 const goal = document.querySelector('.goal')
+const excess = document.querySelector('.excess')
 console.log(userHeight, userWeight, resultBtn ,goal);
 
 resultBtn.addEventListener('click',userFunc1);
 function userFunc1(){
-    let result = Number(userHeight.value)-100*0.9;
+    let result = (Number(userHeight.value)-100)*0.9;
     console.log(result);
     goal.innerHTML = `${result} kg입니다.` ;
 }
 resultBtn.addEventListener('click',userFunc2);
 function userFunc2(){
-    let excessResult = Number(userWeight.value)-Number(userHeight.value)-100*0.9;
+    let excessResult = (Number(userHeight.value)-100)*0.9 - Number(userWeight.value);
     console.log(excessResult);
-    excess.innerHTML = `${excessResult} kg입니다.` ;
+    excess.innerHTML = `${excessResult} kg초과 되었습니다.` ;
 }
